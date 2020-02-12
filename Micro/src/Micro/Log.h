@@ -1,8 +1,9 @@
 #pragma once
 
 #include "spdlog/spdlog.h"
-#include <memory>
+
 #include "core.h"
+#include "spdlog\fmt\ostr.h"
 
 namespace Micro
 {

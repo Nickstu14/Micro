@@ -1,42 +1,51 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Source Files">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    <Filter Include="Micro">
+      <UniqueIdentifier>{FFA6AB0D-6BBB-D3BE-343D-771EA010D0EF}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
-    </Filter>
-    <Filter Include="Resource Files">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    <Filter Include="Micro\Events">
+      <UniqueIdentifier>{039E5D70-EF00-ED14-9886-25CB84C8B897}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\Micro\Core.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
+    <ClInclude Include="src\Micro.h" />
     <ClInclude Include="src\Micro\Application.h">
-      <Filter>Header Files</Filter>
+      <Filter>Micro</Filter>
     </ClInclude>
-    <ClInclude Include="src\Micro.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="src\Micro\Core.h">
+      <Filter>Micro</Filter>
     </ClInclude>
     <ClInclude Include="src\Micro\EntryPoint.h">
-      <Filter>Header Files</Filter>
+      <Filter>Micro</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Micro\Events\ApplicationEvent.h">
+      <Filter>Micro\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Micro\Events\Event.h">
+      <Filter>Micro\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Micro\Events\KeyEvent.h">
+      <Filter>Micro\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Micro\Events\MouseEvent.h">
+      <Filter>Micro\Events</Filter>
     </ClInclude>
     <ClInclude Include="src\Micro\Log.h">
-      <Filter>Header Files</Filter>
+      <Filter>Micro</Filter>
     </ClInclude>
+    <ClInclude Include="src\Mipch.h" />
+    <ClInclude Include="src\Micro\Window.h" />
+    <ClInclude Include="src\Micro\Platform\Windows\WindowsWindow.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Micro\Application.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Micro</Filter>
     </ClCompile>
     <ClCompile Include="src\Micro\Log.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Micro</Filter>
     </ClCompile>
+    <ClCompile Include="src\Mipch.cpp" />
+    <ClCompile Include="src\Micro\Platform\Windows\WindowsWindow.cpp" />
   </ItemGroup>
 </Project>
