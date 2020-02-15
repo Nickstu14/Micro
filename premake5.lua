@@ -13,9 +13,11 @@ outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
 IncludeDir = {}
 IncludeDir["GLFW"] = "Micro/vendor/glfw/include"
+IncludeDir["Glad"] = "Micro/vendor/Glad/include"
 
 
 include "Micro/vendor"
+include "Micro/vendor/Glad"
 
 
 project "Micro"
@@ -39,11 +41,13 @@ project "Micro"
 	{
 		"%{prj.name}/src",
 		"%{prj.name}/vendor/spdlog/include",
-		"%{IncludeDir.GLFW}"
+		"%{IncludeDir.GLFW}",
+		"%{IncludeDir.Glad}"
 	}
 
 	links{
 		"GLFW",
+		"Glad",
 		"opengl32.lib"
 	}
 
@@ -56,6 +60,7 @@ project "Micro"
 		{
 			"MC_PLATFORM_WINDOWS",
 			"MC_BUILD_DLL",
+			"GLFW_INCLUDE_NONE",
 			"_WINDLL"
 		}
 
@@ -67,16 +72,19 @@ project "Micro"
 		filter "configurations:Debug"
 			defines "MC_DEBUG"
 			runtime "Debug"
+			buildoptions "/MDd"
 			symbols "On"
 
 		filter "configurations:Release"
 			defines "MC_RELEASE"
 			runtime "Release"
+			buildoptions "/MD"
 			optimize "On"
 
 		filter "configurations:Dist"
 			defines "MC_DIST"
 			runtime "Release"
+			buildoptions "/MD"
 			optimize "On"
 
 
@@ -119,14 +127,17 @@ project "SandBox"
 	filter "configurations:Debug"
 		defines "MC_DEBUG"
 		runtime "Debug"
+		buildoptions "/MDd"
 		symbols "On"
 
 	filter "configurations:Release"
 		defines "MC_RELEASE"
 		runtime "Release"
+		buildoptions "/MD"
 		optimize "On"
 
 	filter "configurations:Dist"
 		defines "MC_DIST"
 		runtime "Release"
+		buildoptions "/MD"
 		optimize "On"

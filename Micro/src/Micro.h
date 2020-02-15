@@ -4,6 +4,7 @@
 
 
 #include "Micro\Application.h"
+#include "Micro\Layer.h"
 #include "Micro\Log.h"
 
 // --EnteryPoint---------------

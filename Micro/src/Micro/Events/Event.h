@@ -1,9 +1,8 @@
 #pragma once
 
+#include "Mipch.h"
 #include "Micro/Core.h"
 
-#include <string>
-#include <functional>
 
 namespace Micro
 {
@@ -33,15 +32,17 @@ namespace Micro
 	};
 
 #define EVENT_CLASS_TYPE(type) static EventType GetStaticType() {return EventType::##type;}\
-								virtual EventType GetEventType() const override {return GetStaticType();}\
-								virtual const char* GetName() const override {return #type;}
+																virtual EventType GetEventType() const override {return GetStaticType();}\
+																virtual const char* GetName() const override {return #type;}
 
 #define EVENT_CLASS_CATEGORY(category) virtual int GetCategoryFlags() const override {return category;}
 
-	class MICRO_API Event
+	class Event
 	{
 		friend class EventDispatcher;
 	public:
+		bool Handled = false;
+
 		virtual EventType GetEventType() const = 0;
 		virtual const char* GetName() const = 0;
 		virtual int GetCategoryFlags() const = 0;
@@ -71,13 +72,14 @@ namespace Micro
 		{
 			if (m_Event.GetEventType() == T::GetStaticType())
 			{
-				m_Even.m_Handled = func(*(T*)&m_Event);
+				m_Event.m_Handled = func(*(T*)& m_Event);
+				//m_Event.m_Handled = func(static_cast<t&>(m_Event));
 				return true;
 			}
-			return flase;
+			return false;
 		}
 	private:
-		Event & m_Event;
+		Event& m_Event;
 	};
 
 	inline std::ostream& operator<<(std::ostream& os, const Event& e)
