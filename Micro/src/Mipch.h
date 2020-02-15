@@ -12,7 +12,7 @@
 #include <unordered_map>
 #include <unordered_set>
 
-
+#include "Micro\Log.h"
 
 #ifdef MI_PLATFORM_WINDOWS
 	#include <Windows.h>

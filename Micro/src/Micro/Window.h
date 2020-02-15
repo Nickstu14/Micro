@@ -19,7 +19,7 @@ namespace Micro
 	};
 
 	//Interface representing a desktop system based window
-	class Window
+	class MICRO_API Window
 	{
 	public:
 		using EventCallbackFn = std::function<void(Event&)>;
