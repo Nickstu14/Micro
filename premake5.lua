@@ -1,3 +1,5 @@
+--Main Premake File, this is what is called.
+
 workspace "Micro"
 	architecture "x64"
 	startproject "SandBox"
@@ -14,10 +16,13 @@ outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 IncludeDir = {}
 IncludeDir["GLFW"] = "Micro/vendor/glfw/include"
 IncludeDir["Glad"] = "Micro/vendor/Glad/include"
+IncludeDir["ImGui"] = "Micro/vendor/imgui"
 
 
 include "Micro/vendor"
 include "Micro/vendor/Glad"
+
+startproject "Sandbox"
 
 
 project "Micro"
@@ -42,13 +47,16 @@ project "Micro"
 		"%{prj.name}/src",
 		"%{prj.name}/vendor/spdlog/include",
 		"%{IncludeDir.GLFW}",
-		"%{IncludeDir.Glad}"
+		"%{IncludeDir.Glad}",
+		"%{IncludeDir.ImGui}",
 	}
 
 	links{
 		"GLFW",
 		"Glad",
+		"ImGui",
 		"opengl32.lib"
+
 	}
 
 	filter "system:windows"

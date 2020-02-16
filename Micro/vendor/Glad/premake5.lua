@@ -1,3 +1,5 @@
+--GLAD project
+
 project "Glad"
 	kind "StaticLib"
 	language "C"

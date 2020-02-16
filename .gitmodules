@@ -4,3 +4,6 @@
 [submodule "Micro/vendor/glfw"]
 	path = Micro/vendor/glfw
 	url = https://github.com/glfw/glfw
+[submodule "Micro/vendor/imgui"]
+	path = Micro/vendor/imgui
+	url = https://github.com/ocornut/imgui
