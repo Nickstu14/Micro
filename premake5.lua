@@ -1,5 +1,3 @@
---Main Premake File, this is what is called.
-
 workspace "Micro"
 	architecture "x64"
 	startproject "SandBox"
@@ -17,18 +15,18 @@ IncludeDir = {}
 IncludeDir["GLFW"] = "Micro/vendor/glfw/include"
 IncludeDir["Glad"] = "Micro/vendor/Glad/include"
 IncludeDir["ImGui"] = "Micro/vendor/imgui"
+IncludeDir["glm"] = "Micro/vendor/glm"
 
 
 include "Micro/vendor"
 include "Micro/vendor/Glad"
-
-startproject "Sandbox"
 
 
 project "Micro"
 	location "Micro"
 	kind "SharedLib"
 	language "C++"
+	staticruntime "off"
 
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
@@ -39,7 +37,9 @@ project "Micro"
 	files
 	{
 		"%{prj.name}/src/**.h",
-		"%{prj.name}/src/**.cpp"
+		"%{prj.name}/src/**.cpp",
+		"%{prj.name}/vendor/glm/glm/**.hpp",
+		"%{prj.name}/vendor/glm/glm/**.inl"
 	}
 
 	includedirs
@@ -49,6 +49,7 @@ project "Micro"
 		"%{IncludeDir.GLFW}",
 		"%{IncludeDir.Glad}",
 		"%{IncludeDir.ImGui}",
+		"%{IncludeDir.glm}"
 	}
 
 	links{
@@ -56,12 +57,10 @@ project "Micro"
 		"Glad",
 		"ImGui",
 		"opengl32.lib"
-
 	}
 
 	filter "system:windows"
 		cppdialect "C++17"
-		staticruntime "On"
 		systemversion "latest"
 
 		defines
@@ -80,19 +79,16 @@ project "Micro"
 		filter "configurations:Debug"
 			defines "MC_DEBUG"
 			runtime "Debug"
-			buildoptions "/MDd"
 			symbols "On"
 
 		filter "configurations:Release"
 			defines "MC_RELEASE"
 			runtime "Release"
-			buildoptions "/MD"
 			optimize "On"
 
 		filter "configurations:Dist"
 			defines "MC_DIST"
 			runtime "Release"
-			buildoptions "/MD"
 			optimize "On"
 
 
@@ -100,6 +96,7 @@ project "SandBox"
 	location "SandBox"
 	kind "ConsoleApp"
 	language "C++"
+	staticruntime "off"
 
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
@@ -113,7 +110,8 @@ project "SandBox"
 	includedirs
 	{
 		"Micro/vendor/spdlog/include",
-		"Micro/src"
+		"Micro/src",
+		"%{IncludeDir.glm}"
 	}
 
 	links
@@ -123,7 +121,6 @@ project "SandBox"
 
 	filter "system:windows"
 		cppdialect "C++17"
-		staticruntime "On"
 		systemversion "latest"
 
 		defines
@@ -135,17 +132,14 @@ project "SandBox"
 	filter "configurations:Debug"
 		defines "MC_DEBUG"
 		runtime "Debug"
-		buildoptions "/MDd"
 		symbols "On"
 
 	filter "configurations:Release"
 		defines "MC_RELEASE"
 		runtime "Release"
-		buildoptions "/MD"
 		optimize "On"
 
 	filter "configurations:Dist"
 		defines "MC_DIST"
 		runtime "Release"
-		buildoptions "/MD"
 		optimize "On"

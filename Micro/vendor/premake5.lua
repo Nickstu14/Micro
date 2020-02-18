@@ -1,6 +1,3 @@
---GLFW Project
---ImGui Project
-
 project "GLFW"
 	kind "StaticLib"
 	language "C"
@@ -20,31 +17,6 @@ project "GLFW"
 		"glfw/src/vulkan.c",
 		"glfw/src/window.c"
 	}
-
-	filter "system:linux"
-		pic "On"
-
-		systemversion "latest"
-		staticruntime "On"
-
-		files
-		{
-			"glfw/src/x11_init.c",
-			"glfw/src/x11_monitor.c",
-			"glfw/src/x11_window.c",
-			"glfw/src/xkb_unicode.c",
-			"glfw/src/posix_time.c",
-			"glfw/src/posix_thread.c",
-			"glfw/src/glx_context.c",
-			"glfw/src/egl_context.c",
-			"glfw/src/osmesa_context.c",
-			"glfw/src/linux_joystick.c"
-		}
-
-		defines
-		{
-			"_GLFW_X11"
-		}
 
 	filter "system:windows"
 		buildoptions { "-std=c11", "-lgdi32"}
@@ -70,15 +42,8 @@ project "GLFW"
 			"_CRT_SECURE_NO_WARNINGS"
 		}
 
-	filter "configurations:Debug"
-		runtime "Debug"
-		buildoptions "/MT"
-		symbols "on"
-
-	filter "configurations:Release"
-		runtime "Release"
-		buildoptions "/MT"
-		optimize "on"
+	filter { "system:windows", "configurations:Release" }
+        buildoptions "/MT"
 
 project "ImGui"
 	kind "StaticLib"
@@ -106,16 +71,7 @@ project "ImGui"
 		cppdialect "C++17"
 		staticruntime "On"
 
-	filter "system:linux"
-		pic "On"
-		systemversion "latest"
-		cppdialect "C++17"
-		staticruntime "On"
+	
 
-	filter "configurations:Debug"
-		runtime "Debug"
-		symbols "on"
-
-	filter "configurations:Release"
-		runtime "Release"
-		optimize "on"
+	filter { "system:windows", "configurations:Release" }
+        buildoptions "/MT"
