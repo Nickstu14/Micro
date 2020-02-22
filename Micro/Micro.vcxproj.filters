@@ -16,9 +16,6 @@
     <Filter Include="src\Micro\Platform">
       <UniqueIdentifier>{6A523F78-5636-00CE-BF96-FA20AB99EA4F}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\Micro\Platform\OpenGL">
-      <UniqueIdentifier>{5EE02DA7-CAA2-6131-1353-F0BD7F543A0F}</UniqueIdentifier>
-    </Filter>
     <Filter Include="src\Micro\Platform\Windows">
       <UniqueIdentifier>{A4C605E5-90D6-B1B5-F98F-16D4E5BEA04E}</UniqueIdentifier>
     </Filter>

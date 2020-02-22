@@ -24,9 +24,11 @@ include "Micro/vendor/Glad"
 
 project "Micro"
 	location "Micro"
-	kind "SharedLib"
+	kind "StaticLib"
 	language "C++"
-	staticruntime "off"
+	cppdialect "C++17"
+	staticruntime "on"
+	
 
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
@@ -40,6 +42,11 @@ project "Micro"
 		"%{prj.name}/src/**.cpp",
 		"%{prj.name}/vendor/glm/glm/**.hpp",
 		"%{prj.name}/vendor/glm/glm/**.inl"
+	}
+
+	defines
+	{
+		"_CRT_SECURE_NO_WARNINGS"
 	}
 
 	includedirs
@@ -60,43 +67,38 @@ project "Micro"
 	}
 
 	filter "system:windows"
-		cppdialect "C++17"
+
 		systemversion "latest"
 
 		defines
 		{
 			"MC_PLATFORM_WINDOWS",
 			"MC_BUILD_DLL",
-			"GLFW_INCLUDE_NONE",
-			"_WINDLL"
-		}
-
-		postbuildcommands
-		{
-			("{COPY} %{cfg.buildtarget.relpath} ../bin/" .. outputdir .. "/SandBox")
+			"GLFW_INCLUDE_NONE"
 		}
 
 		filter "configurations:Debug"
 			defines "MC_DEBUG"
 			runtime "Debug"
-			symbols "On"
+			symbols "on"
 
 		filter "configurations:Release"
 			defines "MC_RELEASE"
 			runtime "Release"
-			optimize "On"
+			optimize "on"
 
 		filter "configurations:Dist"
 			defines "MC_DIST"
 			runtime "Release"
-			optimize "On"
+			optimize "on"
 
 
 project "SandBox"
 	location "SandBox"
 	kind "ConsoleApp"
 	language "C++"
-	staticruntime "off"
+	cppdialect "C++17"
+	staticruntime "on"
 
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
@@ -120,7 +122,7 @@ project "SandBox"
 	}
 
 	filter "system:windows"
-		cppdialect "C++17"
+
 		systemversion "latest"
 
 		defines
@@ -132,14 +134,14 @@ project "SandBox"
 	filter "configurations:Debug"
 		defines "MC_DEBUG"
 		runtime "Debug"
-		symbols "On"
+		symbols "on"
 
 	filter "configurations:Release"
 		defines "MC_RELEASE"
 		runtime "Release"
-		optimize "On"
+		optimize "on"
 
 	filter "configurations:Dist"
 		defines "MC_DIST"
 		runtime "Release"
-		optimize "On"
+		optimize "on"

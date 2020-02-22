@@ -1,10 +1,14 @@
 #pragma once
 
 #ifdef MC_PLATFORM_WINDOWS
-	#ifdef MC_BUILD_DLL
-		#define MICRO_API	__declspec(dllexport)
+	#if MC_DYNAMIC_LINK
+		#ifdef MC_BUILD_DLL
+			#define MICRO_API	__declspec(dllexport)
+		#else
+			#define MICRO_API	__declspec(dllimport)
+		#endif
 	#else
-		#define MICRO_API	__declspec(dllimport)
+		#define MICRO_API
 	#endif
 #else
 	#error Micro only supports windows!
