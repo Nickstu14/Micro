@@ -155,8 +155,10 @@
     <ClInclude Include="src\Micro\LayerStack.h" />
     <ClInclude Include="src\Micro\Log.h" />
     <ClInclude Include="src\Micro\MouseButtonCodes.h" />
-    <ClInclude Include="src\Micro\Platform\Windows\WindowsInput.h" />
-    <ClInclude Include="src\Micro\Platform\Windows\WindowsWindow.h" />
+    <ClInclude Include="src\Platform\Windows\WindowsInput.h" />
+    <ClInclude Include="src\Platform\Windows\WindowsWindow.h" />
+    <ClInclude Include="src\Micro\Renderer\GraphicsContext.h" />
+    <ClInclude Include="src\Platform\OpenGL\OpenGLContext.h" />
     <ClInclude Include="src\Micro\Window.h" />
     <ClInclude Include="src\Mipch.h" />
     <ClInclude Include="vendor\glm\glm\common.hpp" />
@@ -547,8 +549,9 @@
     <ClCompile Include="src\Micro\Layer.cpp" />
     <ClCompile Include="src\Micro\LayerStack.cpp" />
     <ClCompile Include="src\Micro\Log.cpp" />
-    <ClCompile Include="src\Micro\Platform\Windows\WindowsInput.cpp" />
-    <ClCompile Include="src\Micro\Platform\Windows\WindowsWindow.cpp" />
+    <ClCompile Include="src\Platform\OpenGL\OpenGLContext.cpp" />
+    <ClCompile Include="src\Platform\Windows\WindowsInput.cpp" />
+    <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp" />
     <ClCompile Include="src\Mipch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>

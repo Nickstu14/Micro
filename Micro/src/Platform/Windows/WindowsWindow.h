@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Micro/Window.h"
+#include "Micro\Renderer\GraphicsContext.h"
 
 #include <GLFW/glfw3.h>
 
@@ -30,6 +31,7 @@ namespace Micro
 	private :
 		GLFWwindow * m_Window;
 		//Scope<GraphicsContext> m_Context;
+		GraphicsContext* m_Context;
 
 		struct WindowData
 		{

@@ -87,12 +87,6 @@
     <ClInclude Include="src\Micro\MouseButtonCodes.h">
       <Filter>src\Micro</Filter>
     </ClInclude>
-    <ClInclude Include="src\Micro\Platform\Windows\WindowsInput.h">
-      <Filter>src\Micro\Platform\Windows</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Micro\Platform\Windows\WindowsWindow.h">
-      <Filter>src\Micro\Platform\Windows</Filter>
-    </ClInclude>
     <ClInclude Include="src\Micro\Window.h">
       <Filter>src\Micro</Filter>
     </ClInclude>
@@ -1239,6 +1233,14 @@
     <ClInclude Include="vendor\glm\glm\vector_relational.hpp">
       <Filter>vendor\glm\glm</Filter>
     </ClInclude>
+    <ClInclude Include="src\Micro\Renderer\GraphicsContext.h" />
+    <ClInclude Include="src\Platform\OpenGL\OpenGLContext.h" />
+    <ClInclude Include="src\Platform\Windows\WindowsInput.h">
+      <Filter>src\Micro\Platform\Windows</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Platform\Windows\WindowsWindow.h">
+      <Filter>src\Micro\Platform\Windows</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Micro\Application.cpp">
@@ -1259,14 +1261,15 @@
     <ClCompile Include="src\Micro\Log.cpp">
       <Filter>src\Micro</Filter>
     </ClCompile>
-    <ClCompile Include="src\Micro\Platform\Windows\WindowsInput.cpp">
-      <Filter>src\Micro\Platform\Windows</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Micro\Platform\Windows\WindowsWindow.cpp">
-      <Filter>src\Micro\Platform\Windows</Filter>
-    </ClCompile>
     <ClCompile Include="src\Mipch.cpp">
       <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Platform\OpenGL\OpenGLContext.cpp" />
+    <ClCompile Include="src\Platform\Windows\WindowsInput.cpp">
+      <Filter>src\Micro\Platform\Windows</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp">
+      <Filter>src\Micro\Platform\Windows</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

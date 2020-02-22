@@ -98,7 +98,7 @@ namespace Micro
 	{
 		static bool show = true;
 		ImGui::ShowDemoWindow(&show);
-		MC_CORE_INFO("Window Show {0}", show);
+		//MC_CORE_INFO("Window Show {0}", show);
 	}
 }
 	
