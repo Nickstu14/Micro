@@ -4,7 +4,7 @@
 #include "Events\Event.h"
 #include "LayerStack.h"
 #include "Micro\Events\ApplicationEvent.h"
-
+#include "Micro\ImGui\ImGuiLayer.h"
 
 
 namespace Micro
@@ -29,6 +29,7 @@ namespace Micro
 		bool OnWindowClosed(WindowCloseEvent& e);
 
 		std::unique_ptr<Window> m_Window;
+		ImGuiLayer* m_ImGuiLayer;
 		bool m_Running = true;
 		LayerStack m_LayerStack;
 

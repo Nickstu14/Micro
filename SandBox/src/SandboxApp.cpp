@@ -10,13 +10,14 @@ public :
 	{
 		//MC_INFO("ExampleLayer::Update");
 
-		if (Micro::Input::IsKeyPressed(MC_KEY_TAB))
-			MC_TRACE("Tab key is pressed!");
+		
 	}
 
 	void OnEvent(Micro::Event& event) override
 	{
 		//MC_TRACE("{0}", event);
+		if (Micro::Input::IsKeyPressed(MC_KEY_TAB))
+			MC_TRACE("Tab key is pressed!");
 	}
 };
 
@@ -27,7 +28,6 @@ public:
 	Sandbox()
 	{
 		PushLayer(new ExampleLayer());
-		PushOverlay(new Micro::ImGuiLayer());
 	}
 	~Sandbox()
 	{
