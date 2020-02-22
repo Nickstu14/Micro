@@ -1241,6 +1241,7 @@
     <ClInclude Include="src\Platform\Windows\WindowsWindow.h">
       <Filter>src\Micro\Platform\Windows</Filter>
     </ClInclude>
+    <ClInclude Include="src\Micro\Renderer\Shader.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Micro\Application.cpp">
@@ -1271,5 +1272,6 @@
     <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp">
       <Filter>src\Micro\Platform\Windows</Filter>
     </ClCompile>
+    <ClCompile Include="src\Micro\Renderer\Shader.cpp" />
   </ItemGroup>
 </Project>

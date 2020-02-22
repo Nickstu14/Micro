@@ -13,6 +13,9 @@ namespace Micro
 		virtual void Init() override;
 		virtual void SwapBuffers() override;
 
+		//openGL Info
+		void OpenGLInfo();
+
 	private:
 		GLFWwindow * m_WindowHandle;
 	};

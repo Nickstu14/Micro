@@ -17,11 +17,21 @@ namespace Micro
 		glfwMakeContextCurrent(m_WindowHandle);
 		int status = gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
 		MC_CORE_ASSERT(status, "Failed to initialize Glad!");
+
+		OpenGLInfo();
 	}
 
 	void OpenGLContext::SwapBuffers()
 	{
 
 		glfwSwapBuffers(m_WindowHandle);
+	}
+
+	void OpenGLContext::OpenGLInfo()
+	{
+		MC_CORE_INFO("OpenGL Info:");
+		MC_CORE_INFO("  Vendor:	{0}", glGetString(GL_RENDERER));
+		MC_CORE_INFO("  Renderer:	{0}", glGetString(GL_VENDOR));
+		MC_CORE_INFO("  Version:	{0}", glGetString(GL_VERSION));
 	}
 }
