@@ -13,11 +13,17 @@
     <Filter Include="src\Micro\ImGui">
       <UniqueIdentifier>{005375DD-6CDE-E2A1-75EF-6596E1F93EA2}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\Micro\Platform">
-      <UniqueIdentifier>{6A523F78-5636-00CE-BF96-FA20AB99EA4F}</UniqueIdentifier>
+    <Filter Include="src\Micro\Renderer">
+      <UniqueIdentifier>{BC591C53-A83D-DDA8-119E-D7FBFDA0C72A}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\Micro\Platform\Windows">
-      <UniqueIdentifier>{A4C605E5-90D6-B1B5-F98F-16D4E5BEA04E}</UniqueIdentifier>
+    <Filter Include="src\Platform">
+      <UniqueIdentifier>{21CA02E5-0D2D-9289-B6B2-CA3FA2F45D0C}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Platform\OpenGL">
+      <UniqueIdentifier>{35A49437-A105-7245-2A73-B8F796D3A804}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Platform\Windows">
+      <UniqueIdentifier>{5B054582-4794-CE4B-F0B2-E246DC20DFF1}</UniqueIdentifier>
     </Filter>
     <Filter Include="vendor">
       <UniqueIdentifier>{B3738122-9F15-ACF8-88D0-BF4C74113349}</UniqueIdentifier>
@@ -87,11 +93,50 @@
     <ClInclude Include="src\Micro\MouseButtonCodes.h">
       <Filter>src\Micro</Filter>
     </ClInclude>
+    <ClInclude Include="src\Micro\Renderer\Buffer.h">
+      <Filter>src\Micro\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Micro\Renderer\GraphicsContext.h">
+      <Filter>src\Micro\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Micro\Renderer\Renderer.h">
+      <Filter>src\Micro\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Micro\Renderer\RendererAPI.h">
+      <Filter>src\Micro\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Micro\Renderer\RendererCommand.h">
+      <Filter>src\Micro\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Micro\Renderer\Shader.h">
+      <Filter>src\Micro\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Micro\Renderer\VertexArray.h">
+      <Filter>src\Micro\Renderer</Filter>
+    </ClInclude>
     <ClInclude Include="src\Micro\Window.h">
       <Filter>src\Micro</Filter>
     </ClInclude>
     <ClInclude Include="src\Mipch.h">
       <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Platform\OpenGL\OpenGLBuffer.h">
+      <Filter>src\Platform\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Platform\OpenGL\OpenGLContext.h">
+      <Filter>src\Platform\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Platform\OpenGL\OpenGLRendererAPI.h">
+      <Filter>src\Platform\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Platform\OpenGL\OpenGLVertexArray.h">
+      <Filter>src\Platform\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Platform\Windows\WindowsInput.h">
+      <Filter>src\Platform\Windows</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Platform\Windows\WindowsWindow.h">
+      <Filter>src\Platform\Windows</Filter>
     </ClInclude>
     <ClInclude Include="vendor\glm\glm\common.hpp">
       <Filter>vendor\glm\glm</Filter>
@@ -1233,15 +1278,6 @@
     <ClInclude Include="vendor\glm\glm\vector_relational.hpp">
       <Filter>vendor\glm\glm</Filter>
     </ClInclude>
-    <ClInclude Include="src\Micro\Renderer\GraphicsContext.h" />
-    <ClInclude Include="src\Platform\OpenGL\OpenGLContext.h" />
-    <ClInclude Include="src\Platform\Windows\WindowsInput.h">
-      <Filter>src\Micro\Platform\Windows</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Platform\Windows\WindowsWindow.h">
-      <Filter>src\Micro\Platform\Windows</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Micro\Renderer\Shader.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Micro\Application.cpp">
@@ -1262,16 +1298,44 @@
     <ClCompile Include="src\Micro\Log.cpp">
       <Filter>src\Micro</Filter>
     </ClCompile>
+    <ClCompile Include="src\Micro\Renderer\Buffer.cpp">
+      <Filter>src\Micro\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Micro\Renderer\Renderer.cpp">
+      <Filter>src\Micro\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Micro\Renderer\RendererAPI.cpp">
+      <Filter>src\Micro\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Micro\Renderer\RendererCommand.cpp">
+      <Filter>src\Micro\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Micro\Renderer\Shader.cpp">
+      <Filter>src\Micro\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Micro\Renderer\VertexArray.cpp">
+      <Filter>src\Micro\Renderer</Filter>
+    </ClCompile>
     <ClCompile Include="src\Mipch.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\Platform\OpenGL\OpenGLContext.cpp" />
+    <ClCompile Include="src\Platform\OpenGL\OpenGLBuffer.cpp">
+      <Filter>src\Platform\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Platform\OpenGL\OpenGLContext.cpp">
+      <Filter>src\Platform\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Platform\OpenGL\OpenGLRendererAPI.cpp">
+      <Filter>src\Platform\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Platform\OpenGL\OpenGLVertexArray.cpp">
+      <Filter>src\Platform\OpenGL</Filter>
+    </ClCompile>
     <ClCompile Include="src\Platform\Windows\WindowsInput.cpp">
-      <Filter>src\Micro\Platform\Windows</Filter>
+      <Filter>src\Platform\Windows</Filter>
     </ClCompile>
     <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp">
-      <Filter>src\Micro\Platform\Windows</Filter>
+      <Filter>src\Platform\Windows</Filter>
     </ClCompile>
-    <ClCompile Include="src\Micro\Renderer\Shader.cpp" />
   </ItemGroup>
 </Project>

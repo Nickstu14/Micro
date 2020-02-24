@@ -1,5 +1,6 @@
 #include <Micro.h>
 
+
 class ExampleLayer : public Micro::Layer 
 {
 public :
@@ -9,15 +10,24 @@ public :
 	void OnUpdate() override
 	{
 		//MC_INFO("ExampleLayer::Update");
-
+		
+		
+	}
+	virtual void OnImGuiRender() override
+	{
 		
 	}
 
 	void OnEvent(Micro::Event& event) override
 	{
 		//MC_TRACE("{0}", event);
-		if (Micro::Input::IsKeyPressed(MC_KEY_TAB))
-			MC_TRACE("Tab key is pressed!");
+		if (event.GetEventType() == Micro::EventType::KeyPressed)
+		{
+			Micro::KeyPressedEvent& e = (Micro::KeyPressedEvent&)event;
+			if (e.GetKeyCode() == MC_KEY_TAB)
+				MC_TRACE("Tab key is pressed (event)!");
+			MC_TRACE("{0}", (char)e.GetKeyCode());
+		}
 	}
 };
 

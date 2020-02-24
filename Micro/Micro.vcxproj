@@ -155,13 +155,21 @@
     <ClInclude Include="src\Micro\LayerStack.h" />
     <ClInclude Include="src\Micro\Log.h" />
     <ClInclude Include="src\Micro\MouseButtonCodes.h" />
-    <ClInclude Include="src\Micro\Renderer\Shader.h" />
-    <ClInclude Include="src\Platform\Windows\WindowsInput.h" />
-    <ClInclude Include="src\Platform\Windows\WindowsWindow.h" />
+    <ClInclude Include="src\Micro\Renderer\Buffer.h" />
     <ClInclude Include="src\Micro\Renderer\GraphicsContext.h" />
-    <ClInclude Include="src\Platform\OpenGL\OpenGLContext.h" />
+    <ClInclude Include="src\Micro\Renderer\Renderer.h" />
+    <ClInclude Include="src\Micro\Renderer\RendererAPI.h" />
+    <ClInclude Include="src\Micro\Renderer\RendererCommand.h" />
+    <ClInclude Include="src\Micro\Renderer\Shader.h" />
+    <ClInclude Include="src\Micro\Renderer\VertexArray.h" />
     <ClInclude Include="src\Micro\Window.h" />
     <ClInclude Include="src\Mipch.h" />
+    <ClInclude Include="src\Platform\OpenGL\OpenGLBuffer.h" />
+    <ClInclude Include="src\Platform\OpenGL\OpenGLContext.h" />
+    <ClInclude Include="src\Platform\OpenGL\OpenGLRendererAPI.h" />
+    <ClInclude Include="src\Platform\OpenGL\OpenGLVertexArray.h" />
+    <ClInclude Include="src\Platform\Windows\WindowsInput.h" />
+    <ClInclude Include="src\Platform\Windows\WindowsWindow.h" />
     <ClInclude Include="vendor\glm\glm\common.hpp" />
     <ClInclude Include="vendor\glm\glm\detail\_features.hpp" />
     <ClInclude Include="vendor\glm\glm\detail\_fixes.hpp" />
@@ -550,13 +558,21 @@
     <ClCompile Include="src\Micro\Layer.cpp" />
     <ClCompile Include="src\Micro\LayerStack.cpp" />
     <ClCompile Include="src\Micro\Log.cpp" />
+    <ClCompile Include="src\Micro\Renderer\Buffer.cpp" />
+    <ClCompile Include="src\Micro\Renderer\Renderer.cpp" />
+    <ClCompile Include="src\Micro\Renderer\RendererAPI.cpp" />
+    <ClCompile Include="src\Micro\Renderer\RendererCommand.cpp" />
     <ClCompile Include="src\Micro\Renderer\Shader.cpp" />
-    <ClCompile Include="src\Platform\OpenGL\OpenGLContext.cpp" />
-    <ClCompile Include="src\Platform\Windows\WindowsInput.cpp" />
-    <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp" />
+    <ClCompile Include="src\Micro\Renderer\VertexArray.cpp" />
     <ClCompile Include="src\Mipch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="src\Platform\OpenGL\OpenGLBuffer.cpp" />
+    <ClCompile Include="src\Platform\OpenGL\OpenGLContext.cpp" />
+    <ClCompile Include="src\Platform\OpenGL\OpenGLRendererAPI.cpp" />
+    <ClCompile Include="src\Platform\OpenGL\OpenGLVertexArray.cpp" />
+    <ClCompile Include="src\Platform\Windows\WindowsInput.cpp" />
+    <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="vendor\GLFW.vcxproj">

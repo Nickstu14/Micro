@@ -30,8 +30,8 @@ namespace Micro
 		IMGUI_CHECKVERSION();
 		ImGui::CreateContext();
 		ImGuiIO& io = ImGui::GetIO(); (void)io;
-		io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard; //Enamble Keyboard controls
-		//io.ConfigFlags |= ImGuiConfigFlags_NavEnableGamepad; //Enable Gamepad controls
+		io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;	//Enamble Keyboard controls
+		//io.ConfigFlags |= ImGuiConfigFlags_NavEnableGamepad;	//Enable Gamepad controls
 		io.ConfigFlags |= ImGuiConfigFlags_DockingEnable;		//Enable Docking
 		io.ConfigFlags |= ImGuiConfigFlags_ViewportsEnable;		//Enable Multi-Viewport / Platform Windows
 		//io.ConfigFlags |= ImguiConfigflags_ViewportsNoTaskBarIcons;

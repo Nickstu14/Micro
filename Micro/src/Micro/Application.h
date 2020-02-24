@@ -7,6 +7,8 @@
 #include "Micro\ImGui\ImGuiLayer.h"
 
 #include "Micro\Renderer\Shader.h"
+#include "Micro\Renderer\Buffer.h"
+#include "Micro\Renderer\VertexArray.h"
 
 
 namespace Micro
@@ -35,11 +37,14 @@ namespace Micro
 		bool m_Running = true;
 		LayerStack m_LayerStack;
 
-		unsigned int m_VertexArray;
-		unsigned int m_VertexBuffer;
-		unsigned int m_IndexBuffer;
 
-		std::unique_ptr<Shader> m_Shader;
+		std::shared_ptr<Shader> m_Shader;
+		std::shared_ptr<VertexArray>m_VertexArray;
+
+		std::shared_ptr<Shader> m_BlueShader;
+		std::shared_ptr<VertexArray>m_SquareVA;
+		
+		
 
 		static Application* s_Instance;
 	};
