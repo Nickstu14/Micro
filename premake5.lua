@@ -113,6 +113,7 @@ project "SandBox"
 	{
 		"Micro/vendor/spdlog/include",
 		"Micro/src",
+		"Micro/vendor",
 		"%{IncludeDir.glm}"
 	}
 

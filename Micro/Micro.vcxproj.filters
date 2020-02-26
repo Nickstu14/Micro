@@ -1278,6 +1278,8 @@
     <ClInclude Include="vendor\glm\glm\vector_relational.hpp">
       <Filter>vendor\glm\glm</Filter>
     </ClInclude>
+    <ClInclude Include="src\Micro\Renderer\OrthographicCamera.h" />
+    <ClInclude Include="src\Micro\Core\TimeStep.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Micro\Application.cpp">
@@ -1337,5 +1339,6 @@
     <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp">
       <Filter>src\Platform\Windows</Filter>
     </ClCompile>
+    <ClCompile Include="src\Micro\Renderer\OrthographicCamera.cpp" />
   </ItemGroup>
 </Project>
