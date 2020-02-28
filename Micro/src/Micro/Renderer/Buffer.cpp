@@ -17,6 +17,7 @@ namespace Micro
 		}
 
 		MC_CORE_ASSERT(false, "Unknown RendererAPI!");
+		return nullptr;
 	}
 
 	//Index Buffer -------------------------------------------------------
@@ -31,6 +32,7 @@ namespace Micro
 		}
 
 		MC_CORE_ASSERT(false, "Unknown RendererAPI!");
+		return nullptr;
 	}
 }
 

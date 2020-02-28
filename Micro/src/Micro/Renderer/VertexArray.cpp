@@ -2,7 +2,6 @@
 #include "VertexArray.h"
 #include "Renderer.h"
 
-#include "Platform\OpenGL\OpenGLContext.h"
 #include "Platform\OpenGL\OpenGLVertexArray.h"
 
 namespace Micro {
@@ -20,19 +19,5 @@ namespace Micro {
 		MC_CORE_ASSERT(false, "Unknown RendererAPI!");
 		return nullptr;
 	}
-	/*
 
-	VertexArray::~VertexArray()
-	{
-		switch (Renderer::GetAPI())
-		{
-		case RendererAPI::None: MC_CORE_ASSERT(false, "RendererAPI::None is currently not suported") return nullptr;
-			break;
-		case RendererAPI::OpenGL: return new OpenGLVertexBuffer(vertices, size);
-
-		}
-
-		MC_CORE_ASSERT(false, "Unknown RendererAPI!");
-	}
-*/
 }

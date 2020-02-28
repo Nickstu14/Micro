@@ -7,6 +7,9 @@
     <Filter Include="src\Micro">
       <UniqueIdentifier>{56B568B3-C21F-1D2A-0B5E-CECF7707FB7E}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\Micro\Core">
+      <UniqueIdentifier>{6E9F3616-5A6D-2A1C-4301-9B422F6E0681}</UniqueIdentifier>
+    </Filter>
     <Filter Include="src\Micro\Events">
       <UniqueIdentifier>{7A447E83-663D-9DD5-8F6F-825A7BC77CE1}</UniqueIdentifier>
     </Filter>
@@ -46,6 +49,9 @@
     <Filter Include="vendor\glm\glm\gtx">
       <UniqueIdentifier>{B3A6A76B-9F8A-68C1-08EB-6214F4ED5243}</UniqueIdentifier>
     </Filter>
+    <Filter Include="vendor\stb_image">
+      <UniqueIdentifier>{0DA0BA59-F998-D9AB-22CB-BE300E23B9B7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Micro.h">
@@ -56,6 +62,9 @@
     </ClInclude>
     <ClInclude Include="src\Micro\Core.h">
       <Filter>src\Micro</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Micro\Core\TimeStep.h">
+      <Filter>src\Micro\Core</Filter>
     </ClInclude>
     <ClInclude Include="src\Micro\EntryPoint.h">
       <Filter>src\Micro</Filter>
@@ -99,6 +108,12 @@
     <ClInclude Include="src\Micro\Renderer\GraphicsContext.h">
       <Filter>src\Micro\Renderer</Filter>
     </ClInclude>
+    <ClInclude Include="src\Micro\Renderer\Material.h">
+      <Filter>src\Micro\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Micro\Renderer\OrthographicCamera.h">
+      <Filter>src\Micro\Renderer</Filter>
+    </ClInclude>
     <ClInclude Include="src\Micro\Renderer\Renderer.h">
       <Filter>src\Micro\Renderer</Filter>
     </ClInclude>
@@ -109,6 +124,9 @@
       <Filter>src\Micro\Renderer</Filter>
     </ClInclude>
     <ClInclude Include="src\Micro\Renderer\Shader.h">
+      <Filter>src\Micro\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Micro\Renderer\Texture.h">
       <Filter>src\Micro\Renderer</Filter>
     </ClInclude>
     <ClInclude Include="src\Micro\Renderer\VertexArray.h">
@@ -127,6 +145,12 @@
       <Filter>src\Platform\OpenGL</Filter>
     </ClInclude>
     <ClInclude Include="src\Platform\OpenGL\OpenGLRendererAPI.h">
+      <Filter>src\Platform\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Platform\OpenGL\OpenGLShader.h">
+      <Filter>src\Platform\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Platform\OpenGL\OpenGLTexture.h">
       <Filter>src\Platform\OpenGL</Filter>
     </ClInclude>
     <ClInclude Include="src\Platform\OpenGL\OpenGLVertexArray.h">
@@ -1278,8 +1302,9 @@
     <ClInclude Include="vendor\glm\glm\vector_relational.hpp">
       <Filter>vendor\glm\glm</Filter>
     </ClInclude>
-    <ClInclude Include="src\Micro\Renderer\OrthographicCamera.h" />
-    <ClInclude Include="src\Micro\Core\TimeStep.h" />
+    <ClInclude Include="vendor\stb_image\stb_image.h">
+      <Filter>vendor\stb_image</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Micro\Application.cpp">
@@ -1303,6 +1328,12 @@
     <ClCompile Include="src\Micro\Renderer\Buffer.cpp">
       <Filter>src\Micro\Renderer</Filter>
     </ClCompile>
+    <ClCompile Include="src\Micro\Renderer\Material.cpp">
+      <Filter>src\Micro\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Micro\Renderer\OrthographicCamera.cpp">
+      <Filter>src\Micro\Renderer</Filter>
+    </ClCompile>
     <ClCompile Include="src\Micro\Renderer\Renderer.cpp">
       <Filter>src\Micro\Renderer</Filter>
     </ClCompile>
@@ -1313,6 +1344,9 @@
       <Filter>src\Micro\Renderer</Filter>
     </ClCompile>
     <ClCompile Include="src\Micro\Renderer\Shader.cpp">
+      <Filter>src\Micro\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Micro\Renderer\Texture.cpp">
       <Filter>src\Micro\Renderer</Filter>
     </ClCompile>
     <ClCompile Include="src\Micro\Renderer\VertexArray.cpp">
@@ -1330,6 +1364,12 @@
     <ClCompile Include="src\Platform\OpenGL\OpenGLRendererAPI.cpp">
       <Filter>src\Platform\OpenGL</Filter>
     </ClCompile>
+    <ClCompile Include="src\Platform\OpenGL\OpenGLShader.cpp">
+      <Filter>src\Platform\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Platform\OpenGL\OpenGLTexture.cpp">
+      <Filter>src\Platform\OpenGL</Filter>
+    </ClCompile>
     <ClCompile Include="src\Platform\OpenGL\OpenGLVertexArray.cpp">
       <Filter>src\Platform\OpenGL</Filter>
     </ClCompile>
@@ -1339,6 +1379,8 @@
     <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp">
       <Filter>src\Platform\Windows</Filter>
     </ClCompile>
-    <ClCompile Include="src\Micro\Renderer\OrthographicCamera.cpp" />
+    <ClCompile Include="vendor\stb_image\stb_image.cpp">
+      <Filter>vendor\stb_image</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

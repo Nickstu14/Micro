@@ -16,6 +16,7 @@ IncludeDir["GLFW"] = "Micro/vendor/glfw/include"
 IncludeDir["Glad"] = "Micro/vendor/Glad/include"
 IncludeDir["ImGui"] = "Micro/vendor/imgui"
 IncludeDir["glm"] = "Micro/vendor/glm"
+IncludeDir["std_image"] = "Micro/vendor/stb_image"
 
 
 include "Micro/vendor"
@@ -40,6 +41,8 @@ project "Micro"
 	{
 		"%{prj.name}/src/**.h",
 		"%{prj.name}/src/**.cpp",
+		"%{prj.name}/vendor/stb_image/**.h",
+		"%{prj.name}/vendor/stb_image/**.cpp",
 		"%{prj.name}/vendor/glm/glm/**.hpp",
 		"%{prj.name}/vendor/glm/glm/**.inl"
 	}
@@ -56,7 +59,8 @@ project "Micro"
 		"%{IncludeDir.GLFW}",
 		"%{IncludeDir.Glad}",
 		"%{IncludeDir.ImGui}",
-		"%{IncludeDir.glm}"
+		"%{IncludeDir.glm}",
+		"%{IncludeDir.stb_image}"
 	}
 
 	links{

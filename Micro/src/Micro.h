@@ -21,6 +21,7 @@
 
 #include "Micro\Renderer\Buffer.h"
 #include "Micro\Renderer\Shader.h"
+#include "Micro\Renderer\Texture.h"
 #include "Micro\Renderer\VertexArray.h"
 
 #include  "Micro\Renderer\OrthographicCamera.h"
