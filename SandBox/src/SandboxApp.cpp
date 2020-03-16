@@ -15,16 +15,16 @@ public:
 		m_VertexArray.reset(Micro::VertexArray::Create());
 
 		float vertices[3 * 7] = {
-			-0.5f,-0.5f, 0.0f, 1.0f, 0.01f, 1.0f, 1.0f,
-			0.5f,-0.5f, 0.0f, 0.0f, 0.01f, 1.0f, 1.0f,
-			0.0f, 0.5f, 0.0f, 1.0f, 1.01f, 0.0f, 1.0f
+			-0.5f,-0.5f, 0.0f, 0.8f, 0.2f, 0.8f, 1.0f,
+			0.5f,-0.5f, 0.0f, 0.2f, 0.3f, 0.8f, 1.0f,
+			0.0f, 0.5f, 0.0f, 0.8f, 0.8f, 0.2f, 1.0f
 		};
 
 		Micro::Ref<Micro::VertexBuffer> vertexBuffer;
 		vertexBuffer.reset(Micro::VertexBuffer::Create(vertices, sizeof(vertices)));
 		Micro::BufferLayout layout = {
 			{ Micro::ShaderDataType::Float3, "a_Position" },
-		{ Micro::ShaderDataType::Float4, "a_Colour" }
+			{ Micro::ShaderDataType::Float4, "a_Colour" }
 		};
 		vertexBuffer->SetLayout(layout);
 
@@ -38,13 +38,11 @@ public:
 		m_SquareVA.reset(Micro::VertexArray::Create());
 		float squareVertices[5 * 4] = {
 			-0.5f, -0.5f, 0.0f, 0.0f, 0.0f,
-			0.5f, -0.5f, 0.0f, 1.0f, 0.0f,
-			0.5f,  0.5f, 0.0f, 1.0f, 1.0f,
+			 0.5f, -0.5f, 0.0f, 1.0f, 0.0f,
+			 0.5f,  0.5f, 0.0f, 1.0f, 1.0f,
 			-0.5f,  0.5f, 0.0f, 0.0f, 1.0f
 		};
-		Micro::Ref<Micro::VertexBuffer> squareVB;// = std::make_shared<VertexBuffer>(VertexBuffer::Create(squareVertices, sizeof(squareVertices)));
-											   //Vertex Array ep 32 @ 33.55
-
+		Micro::Ref<Micro::VertexBuffer> squareVB;
 		squareVB.reset(Micro::VertexBuffer::Create(squareVertices, sizeof(squareVertices)));
 		squareVB->SetLayout(
 			{
@@ -95,17 +93,17 @@ public:
 			)";
 
 		m_Shader.reset(Micro::Shader::Create(vertexSrc, fragmentSrc));
-
-		std::string blueShadervertexSrc = R"(
+		//flatColourShaderVertexsrc
+		//blueShadervertexSrc
+		std::string flatColourShaderVertexsrc = R"(
 			#version 330 core
 
-			layout(location=0) in vec3 a_Position;
+			layout(location = 0) in vec3 a_Position;
 			
 			uniform mat4 u_ViewPorjection;
 			uniform mat4 u_Transform;
 
 			out vec3 v_Position;
-			out vec4 v_Colour;
 
 			void main()
 			{
@@ -130,7 +128,7 @@ public:
 			
 			)";
 
-		m_flatColourShader.reset(Micro::Shader::Create(blueShadervertexSrc, flatColourShaderFragmentSrc));
+		m_flatColourShader.reset(Micro::Shader::Create(flatColourShaderVertexsrc, flatColourShaderFragmentSrc));
 
 		std::string textureShadervertexSrc = R"(
 			#version 330 core
@@ -170,11 +168,13 @@ public:
 
 		m_TextureShader.reset(Micro::Shader::Create(textureShadervertexSrc, textureShaderFragmentSrc));
 
-		m_Texture = (Micro::Texture2D::Create("assets/textures/Checkerboard.png"));
+		m_Texture = Micro::Texture2D::Create("assets/textures/Checkerboard.png");
+		m_ChernoLogo = Micro::Texture2D::Create("assets/textures/ChernoLogo.png");
 
 		std::dynamic_pointer_cast<Micro::OpenGLShader>(m_TextureShader)->Bind();
 		std::dynamic_pointer_cast<Micro::OpenGLShader>(m_TextureShader)->UploadUniformInt("u_Texture", 0);
 	}
+
 	void OnUpdate(Micro::TimeStep ts) override
 	{
 
@@ -223,6 +223,9 @@ public:
 		m_Texture->Bind();
 		Micro::Renderer::Submit(m_TextureShader, m_SquareVA, glm::scale(glm::mat4(1.0f), glm::vec3(1.5f)));
 
+		m_ChernoLogo->Bind();
+		Micro::Renderer::Submit(m_TextureShader, m_SquareVA, glm::scale(glm::mat4(1.0f), glm::vec3(1.5f)));
+
 		//Triangle		
 		//Micro::Renderer::Submit(m_Shader, m_VertexArray);
 
@@ -251,6 +254,7 @@ private:
 	Micro::Ref<Micro::VertexArray>m_SquareVA;
 
 	Micro::Ref<Micro::Texture2D> m_Texture;
+	Micro::Ref<Micro::Texture2D> m_ChernoLogo;
 
 	Micro::OrthographicCamera m_Camera;
 	glm::vec3 m_CamPosition;

@@ -9,7 +9,7 @@ namespace Micro
 	public:
 		//OpenGLRendererAPI();
 		//~OpenGLRendererAPI();
-
+		virtual void Init() override;
 		virtual void SetClearColour(const glm::vec4& colour) override;
 		virtual void Clear()override;
 
