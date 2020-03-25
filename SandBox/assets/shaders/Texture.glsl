@@ -3,16 +3,16 @@
 #version 330 core
 
 layout(location = 0) in vec3 a_Position;
-layout(location = 1) in vec2 a_TextCoord;
+layout(location = 1) in vec2 a_TexCoord;
 
 uniform mat4 u_ViewPorjection;
 uniform mat4 u_Transform;
 
-out vec2 v_TextCoord;
+out vec2 v_TexCoord;
 
 void main()
 {
-	v_TextCoord = a_TextCoord;
+	v_TexCoord = a_TexCoord;
 	gl_Position = u_ViewPorjection * u_Transform *  vec4(a_Position, 1.0);
 }
 
@@ -22,11 +22,11 @@ void main()
 
 layout(location = 0) out vec4 colour;
 
-in vec2 v_TextCoord;
+in vec2 v_TexCoord;
 
 uniform sampler2D u_Texture;
 
 void main()
 {
-	colour = vec4(u_Texture, v_TextCoord);
+	colour = texture(u_Texture, v_TexCoord);
 }

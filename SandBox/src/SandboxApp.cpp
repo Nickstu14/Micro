@@ -92,7 +92,8 @@ public:
 			
 			)";
 
-		m_Shader.reset(Micro::Shader::Create(vertexSrc, fragmentSrc));
+		m_Shader = Micro::Shader::Create("VertexPosColour", vertexSrc, fragmentSrc);
+		//m_Shader.reset(Micro::Shader::Create(vertexSrc, fragmentSrc));
 		//flatColourShaderVertexsrc
 		//blueShadervertexSrc
 
@@ -131,17 +132,19 @@ public:
 			
 			)";
 
-		m_flatColourShader.reset(Micro::Shader::Create(flatColourShaderVertexsrc, flatColourShaderFragmentSrc));
-
+		//m_flatColourShader.reset(Micro::Shader::Create(flatColourShaderVertexsrc, flatColourShaderFragmentSrc));
+		m_flatColourShader = Micro::Shader::Create("FlatColour", flatColourShaderVertexsrc, flatColourShaderFragmentSrc);
 		
 
-		m_TextureShader.reset(Micro::Shader::Create("assets/shaders/Texture.glsl"));
+		//m_TextureShader.reset(Micro::Shader::Create("assets/shaders/Texture.glsl"));
+		auto textureShader = m_ShaderLibrary.Load("assets/shaders/Texture.glsl");
+
 
 		m_Texture = Micro::Texture2D::Create("assets/textures/Checkerboard.png");
 		m_ChernoLogo = Micro::Texture2D::Create("assets/textures/ChernoLogo.png");
 
-		std::dynamic_pointer_cast<Micro::OpenGLShader>(m_TextureShader)->Bind();
-		std::dynamic_pointer_cast<Micro::OpenGLShader>(m_TextureShader)->UploadUniformInt("u_Texture", 0);
+		std::dynamic_pointer_cast<Micro::OpenGLShader>(textureShader)->Bind();
+		std::dynamic_pointer_cast<Micro::OpenGLShader>(textureShader)->UploadUniformInt("u_Texture", 0);
 	}
 
 	void OnUpdate(Micro::TimeStep ts) override
@@ -149,19 +152,7 @@ public:
 
 		//MC_TRACE("DelterTime: {0}s ({1}ms)", ts.GetSeconds(), ts.GetMilliseconds());
 
-		if (Micro::Input::IsKeyPressed(MC_KEY_A))
-			m_CamPosition.x -= m_CamSpeed * ts;
-		else if (Micro::Input::IsKeyPressed(MC_KEY_D))
-			m_CamPosition.x += m_CamSpeed * ts;
-		if (Micro::Input::IsKeyPressed(MC_KEY_S))
-			m_CamPosition.y -= m_CamSpeed * ts;
-		else if (Micro::Input::IsKeyPressed(MC_KEY_W))
-			m_CamPosition.y += m_CamSpeed * ts;
-
-		if (Micro::Input::IsKeyPressed(MC_KEY_Q))
-			m_CamRot += m_CamRotSpeed * ts;
-		else if (Micro::Input::IsKeyPressed(MC_KEY_E))
-			m_CamRot -= m_CamRotSpeed * ts;
+		
 
 
 		Micro::RendererCommand::SetClearColour({ 0.2f, 0.2f, 0.2f, 1 });
@@ -176,6 +167,7 @@ public:
 
 		glm::mat4 scale = glm::scale(glm::mat4(1.0f), glm::vec3(0.1f));
 
+
 		std::dynamic_pointer_cast<Micro::OpenGLShader>(m_flatColourShader)->Bind();
 		std::dynamic_pointer_cast<Micro::OpenGLShader>(m_flatColourShader)->UploadUniformFloat3("u_Colour", m_SquareColour);
 
@@ -189,11 +181,13 @@ public:
 			}
 		}
 
+		auto textureShader = m_ShaderLibrary.Get("Texture");
+
 		m_Texture->Bind();
-		Micro::Renderer::Submit(m_TextureShader, m_SquareVA, glm::scale(glm::mat4(1.0f), glm::vec3(1.5f)));
+		Micro::Renderer::Submit(textureShader, m_SquareVA, glm::scale(glm::mat4(1.0f), glm::vec3(1.5f)));
 
 		m_ChernoLogo->Bind();
-		Micro::Renderer::Submit(m_TextureShader, m_SquareVA, glm::scale(glm::mat4(1.0f), glm::vec3(1.5f)));
+		Micro::Renderer::Submit(textureShader, m_SquareVA, glm::scale(glm::mat4(1.0f), glm::vec3(1.5f)));
 
 		//Triangle		
 		//Micro::Renderer::Submit(m_Shader, m_VertexArray);
@@ -217,9 +211,10 @@ public:
 private:
 	Micro::Ref<Micro::Shader> m_Shader;
 	Micro::Ref<Micro::VertexArray>m_VertexArray;
+	Micro::ShaderLibrary m_ShaderLibrary;
 
 	Micro::Ref<Micro::Shader> m_flatColourShader;
-	Micro::Ref<Micro::Shader> m_TextureShader;
+	//Micro::Ref<Micro::Shader> m_TextureShader;
 	Micro::Ref<Micro::VertexArray>m_SquareVA;
 
 	Micro::Ref<Micro::Texture2D> m_Texture;
