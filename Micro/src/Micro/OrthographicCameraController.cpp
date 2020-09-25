@@ -4,10 +4,12 @@
 #include "Micro\KeyCodes.h"
 
 namespace Micro {
-	Micro::OrthographicCameraController::OrthographicCameraController(float aspeectRation, bool roations)
+	Micro::OrthographicCameraController::OrthographicCameraController(float aspeectRation, bool rotation)
 		: m_Camera(-m_AspectRatio * m_ZoomLevel, m_AspectRatio * m_ZoomLevel, -m_ZoomLevel, m_ZoomLevel), m_Rotation(rotation)
 	{
 	}
+
+
 
 	void Micro::OrthographicCameraController::OnUpdate(TimeStep ts)
 	{
@@ -31,10 +33,15 @@ namespace Micro {
 
 	void Micro::OrthographicCameraController::OnEvent(Event & e)
 	{
+		EventDispatcher dispatcher(e);
+	
+		dispatcher.Dispatch<MouseScrolledEvent>(MC_BIND_EVENT_FN(OrthographicCameraController::OnMouseScrolled));
+		dispatcher.Dispatch<WindowResizeEvent>(MC_BIND_EVENT_FN(OrthographicCameraController::OnWindowEwsized));
 	}
 
 	bool Micro::OrthographicCameraController::OnMouseScrolled(MouseScrolledEvent & e)
 	{
+		m_ZoomLevel -= e.GetYOffset();
 		return false;
 	}
 

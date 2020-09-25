@@ -7,7 +7,7 @@ namespace Micro
 	class MICRO_API Input
 	{
 	public :
-		inline static bool IsKeyPressed(int Keycode) {	return s_Instance->IsKeyPressedImp(Keycode);}
+		inline static bool IsKeyPressed(int Keycode) { MC_CORE_INFO(Keycode); return s_Instance->IsKeyPressedImp(Keycode); }
 
 		inline static bool IsMouseButtonPressed(int button) { return s_Instance->IsMouseButtonPressedImp(button); }
 		inline static float GetMouseX() { return s_Instance->GetMouseXImp(); }

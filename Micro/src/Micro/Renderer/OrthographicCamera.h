@@ -7,13 +7,15 @@ namespace Micro
 	{
 	public:
 		OrthographicCamera(float left, float right, float bottom, float top);
-		~OrthographicCamera();
+		void SetProjection(float left, float right, float bottom, float top);
 
 		const glm::vec3& GetPositon() const { return m_Position; }
 		float GetRotation() const { return m_Rotation; }
 
 		void SetPosition(const glm::vec3& position) { m_Position = position; RecalculateViewMatrix(); }
 		void SetRoation(float roatation) { m_Rotation = roatation; RecalculateViewMatrix(); }
+
+		
 
 		const glm::mat4& GetProjectionMatrix() const { return m_ProjectionMatrix; }
 		const glm::mat4& GetViewMatrix() const { return m_ViewMatrix; }
